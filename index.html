@@ -3,208 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Boots Football | Exprime ton Style</title>
+    <title>Custom Boots Football | Crée ta Légende</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #c5a059; /* La couleur dorée de ton logo */
-            --dark: #0a0a0a;
-        }
-        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        :root { --gold: #c5a059; }
+        body { font-family: 'Poppins', sans-serif; }
         .logo-font { font-family: 'Orbitron', sans-serif; }
-        
-        /* Effets de Verre (Glassmorphism) */
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Animation de l'image du logo */
-        .logo-spin:hover { transform: rotate(5deg) scale(1.1); transition: 0.4s; }
-
-        /* Style des cartes articles */
-        .article-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .article-card:hover { transform: translateY(-12px); border-color: var(--gold); }
+        .card-hover:hover { transform: translateY(-10px); border-color: var(--gold); }
+        input:focus, select:focus { border-color: var(--gold); outline: none; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50">
 
-    <nav class="bg-black text-white sticky top-0 z-50 py-3 px-6 shadow-2xl">
+    <nav class="bg-black text-white sticky top-0 z-50 py-4 px-6 shadow-xl">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="https://i.ibb.co/LhYf7w8/logo.png" alt="Logo Custom Boots" class="w-14 h-14 rounded-full border-2 border-[#c5a059] logo-spin">
-                <div>
-                    <h1 class="logo-font text-xl font-black tracking-tighter">CUSTOM BOOTS</h1>
-                    <p class="text-[9px] text-[#c5a059] uppercase tracking-[0.3em] font-bold">Est. 2023</p>
-                </div>
+                <img src="https://i.ibb.co/LhYf7w8/logo.png" alt="Logo" class="w-12 h-12 rounded-full border border-[#c5a059]">
+                <h1 class="logo-font text-lg tracking-tighter uppercase">Custom Boots <span class="text-[#c5a059]">Football</span></h1>
             </div>
-            
-            <div class="hidden lg:flex space-x-8 text-[11px] font-bold uppercase tracking-widest">
-                <a href="#store" class="hover:text-[#c5a059] transition">Le Store</a>
-                <a href="#concept" class="hover:text-[#c5a059] transition">Le Concept</a>
-                <a href="#custom" class="bg-[#c5a059] text-black px-4 py-2 rounded-full">Personnaliser</a>
-            </div>
-
-            <div class="flex items-center space-x-5">
-                <div class="relative cursor-pointer" onclick="updateCart(0)">
-                    <i class="fas fa-shopping-bag text-xl"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">0</span>
-                </div>
+            <div class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-widest">
+                <a href="#store" class="hover:text-[#c5a059]">Store</a>
+                <a href="#commande" class="bg-[#c5a059] text-black px-4 py-2 rounded-sm">Passer Commande</a>
             </div>
         </div>
     </nav>
 
-    <header class="relative h-[80vh] flex items-center justify-center bg-black overflow-hidden text-center">
-        <div class="absolute inset-0 opacity-40">
-            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
-        </div>
+    <header class="h-[60vh] bg-black flex items-center justify-center text-center text-white relative">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=1500');"></div>
         <div class="relative z-10 px-4">
-            <span class="text-[#c5a059] font-bold tracking-[0.5em] uppercase text-xs mb-4 block">Transforme ton jeu</span>
-            <h2 class="text-white text-5xl md:text-8xl font-black italic uppercase leading-none mb-6 logo-font">
-                Ton Style,<br><span class="text-transparent" style="-webkit-text-stroke: 1px #c5a059;">Tes Règles.</span>
-            </h2>
-            <p class="text-gray-300 max-w-xl mx-auto mb-10 text-sm md:text-base leading-relaxed">
-                Personnalise tes crampons avec ton nom, ton drapeau ou tes propres motifs graphiques.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#store" class="bg-[#c5a059] text-black px-10 py-4 font-black rounded-sm uppercase italic hover:bg-white transition duration-300">Acheter au Store</a>
-                <a href="#custom" class="border border-[#c5a059] text-[#c5a059] px-10 py-4 font-black rounded-sm uppercase italic hover:bg-[#c5a059] hover:text-black transition duration-300">Customiser ma paire</a>
-            </div>
+            <h2 class="text-4xl md:text-7xl font-black italic logo-font uppercase mb-4">Ton Style, Ton Jeu.</h2>
+            <p class="text-[#c5a059] font-bold tracking-[0.3em] uppercase text-xs">Personnalisation Premium de Crampons [cite: 1, 10]</p>
         </div>
     </header>
 
-    <section id="concept" class="py-20 bg-white">
+    <section id="store" class="py-20 container mx-auto px-6">
+        <h3 class="logo-font text-3xl font-black mb-12 text-center uppercase italic">Le Store <span class="text-[#c5a059]">Elite</span></h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover transition-all">
+                <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Nike Phantom" class="w-full h-56 object-contain mix-blend-multiply">
+                </div>
+                <h4 class="font-black text-2xl uppercase italic mb-2">Nike Phantom GT Custom</h4>
+                <p class="text-gray-400 text-xs mb-6 uppercase tracking-widest">Précision & Contrôle [cite: 36]</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-3xl font-black">2 800 DH</span>
+                    <a href="#commande" class="bg-black text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#c5a059] transition">Choisir</a>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 card-hover transition-all">
+                <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                    <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?w=600" alt="Adidas Predator" class="w-full h-56 object-contain mix-blend-multiply">
+                </div>
+                <h4 class="font-black text-2xl uppercase italic mb-2">Adidas Predator Elite</h4>
+                <p class="text-gray-400 text-xs mb-6 uppercase tracking-widest">Puissance & Effet [cite: 36]</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-3xl font-black">2 500 DH</span>
+                    <a href="#commande" class="bg-black text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#c5a059] transition">Choisir</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="commande" class="py-20 bg-black text-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <h3 class="logo-font text-4xl font-black italic uppercase mb-4">Passer Commande</h3>
+                <p class="text-gray-400">Configurez votre projet et nous vous contacterons pour finaliser le design[cite: 31, 33].</p>
+            </div>
+
+            <form class="bg-white text-black p-8 md:p-12 rounded-3xl shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Type de service [cite: 2]</label>
+                        <select class="w-full p-4 bg-gray-50 border rounded-xl font-medium">
+                            <option>Acheter une paire du Store [cite: 3, 38]</option>
+                            <option>Apporter ma propre paire [cite: 4, 38]</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Modèle souhaité </label>
+                        <select class="w-full p-4 bg-gray-50 border rounded-xl font-medium">
+                            <option>Nike Phantom</option>
+                            <option>Adidas Predator</option>
+                            <option>Autre modèle (à préciser)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Options de personnalisation [cite: 5]</label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <label class="flex items-center space-x-2 text-sm"><input type="checkbox" class="accent-black"> <span>Nom/Numéro [cite: 7]</span></label>
+                        <label class="flex items-center space-x-2 text-sm"><input type="checkbox" class="accent-black"> <span>Couleurs [cite: 6]</span></label>
+                        <label class="flex items-center space-x-2 text-sm"><input type="checkbox" class="accent-black"> <span>Drapeau [cite: 8]</span></label>
+                        <label class="flex items-center space-x-2 text-sm"><input type="checkbox" class="accent-black"> <span>Motifs Graphiques [cite: 9]</span></label>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Détails (Nom, Numéro, Surnom) [cite: 7]</label>
+                    <input type="text" placeholder="Ex: ZIYECH 7" class="w-full p-4 bg-gray-50 border rounded-xl font-bold uppercase">
+                </div>
+
+                <button type="submit" class="w-full bg-[#c5a059] text-black font-black py-5 rounded-xl uppercase tracking-widest hover:bg-black hover:text-white transition">
+                    Envoyer ma demande de devis
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-12">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="logo-font text-3xl font-black mb-12 italic underline decoration-[#c5a059]">2 Façons de Créer</h3>
-            <div class="grid md:grid-cols-2 gap-10">
-                <div class="p-10 border-2 border-gray-100 rounded-3xl hover:border-[#c5a059] transition">
-                    <i class="fas fa-store text-4xl text-[#c5a059] mb-4"></i>
-                    <h4 class="font-bold text-xl mb-4">Le Store Custom Boots</h4>
-                    <p class="text-gray-500 text-sm">Choisis une paire neuve directement dans notre catalogue et personnalise-la[cite: 3].</p>
-                </div>
-                <div class="p-10 border-2 border-gray-100 rounded-3xl hover:border-[#c5a059] transition">
-                    <i class="fas fa-box-open text-4xl text-[#c5a059] mb-4"></i>
-                    <h4 class="font-bold text-xl mb-4">Apporte ta propre Paire</h4>
-                    <p class="text-gray-500 text-sm">Envoie-nous tes crampons préférés et nous les transformons en modèle unique[cite: 4, 5].</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="store" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <h3 class="logo-font text-3xl font-black italic">Collection <span class="text-[#c5a059]">Elite</span></h3>
-                <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Modèles disponibles au store [cite: 3]</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="article-card bg-white p-6 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
-                    <div class="bg-gray-100 rounded-2xl h-64 mb-6 flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Phantom" class="w-4/5 object-contain mix-blend-multiply">
-                    </div>
-                    <span class="bg-black text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase absolute top-10 left-10 italic">Customisable</span>
-                    <h4 class="font-black text-xl mb-2">Phantom Shadow X</h4>
-                    <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4">Nom + Drapeau Inclus [cite: 7, 8]</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-black">269,00 €</span>
-                        <button onclick="updateCart(1)" class="bg-black text-white w-12 h-12 rounded-full hover:bg-[#c5a059] hover:text-black transition">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="article-card bg-white p-6 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
-                    <div class="bg-gray-100 rounded-2xl h-64 mb-6 flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?w=600" alt="Predator" class="w-4/5 object-contain mix-blend-multiply">
-                    </div>
-                    <span class="bg-[#c5a059] text-black text-[9px] font-bold px-3 py-1 rounded-full uppercase absolute top-10 left-10 italic">Populaire</span>
-                    <h4 class="font-black text-xl mb-2">Apex Predator Elite</h4>
-                    <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4">Motifs Graphiques Libres [cite: 9]</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-black text-red-600">220,00 €</span>
-                        <button onclick="updateCart(1)" class="bg-black text-white w-12 h-12 rounded-full hover:bg-[#c5a059] hover:text-black transition">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="article-card bg-white p-6 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
-                    <div class="bg-gray-100 rounded-2xl h-64 mb-6 flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600" alt="Mercurial" class="w-4/5 object-contain mix-blend-multiply">
-                    </div>
-                    <h4 class="font-black text-xl mb-2">Vapor Speed 2026</h4>
-                    <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4">Édition Spéciale [cite: 27]</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-black">280,00 €</span>
-                        <button onclick="updateCart(1)" class="bg-black text-white w-12 h-12 rounded-full hover:bg-[#c5a059] hover:text-black transition">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black text-white py-16 border-t-4 border-[#c5a059]">
-        <div class="container mx-auto px-6 text-center md:text-left grid md:grid-cols-3 gap-12">
-            <div>
-                <img src="https://i.ibb.co/LhYf7w8/logo.png" alt="Logo" class="w-20 h-20 mx-auto md:mx-0 rounded-full border border-[#c5a059] mb-6 grayscale hover:grayscale-0 transition">
-                <h5 class="logo-font text-xl uppercase tracking-widest">Custom Boots <span class="text-[#c5a059]">Football</span></h5>
-                <p class="text-gray-500 text-[10px] mt-4 uppercase tracking-widest leading-loose">
-                    Transformer une chaussure en objet d'expression personnelle[cite: 10].
-                </p>
-            </div>
-            <div class="flex flex-col space-y-4">
-                <h6 class="font-bold uppercase text-[10px] tracking-widest text-[#c5a059]">Options de Custom [cite: 5]</h6>
-                <p class="text-xs text-gray-400 italic">Changement de couleurs [cite: 6]</p>
-                <p class="text-xs text-gray-400 italic">Nom & Numéro [cite: 7]</p>
-                <p class="text-xs text-gray-400 italic">Drapeaux & Symboles [cite: 8, 9]</p>
-            </div>
-            <div class="flex flex-col space-y-4">
-                <h6 class="font-bold uppercase text-[10px] tracking-widest text-[#c5a059]">Rejoins l'académie</h6>
-                <div class="flex justify-center md:justify-start space-x-6 text-2xl">
-                    <i class="fab fa-instagram hover:text-[#c5a059] cursor-pointer"></i>
-                    <i class="fab fa-tiktok hover:text-[#c5a059] cursor-pointer"></i>
-                </div>
-            </div>
+            <p class="text-[10px] font-bold text-gray-400 tracking-[0.4em] uppercase">© 2026 Custom Boots Football | Est. 2023</p>
         </div>
     </footer>
 
-    <script>
-        let count = 0;
-        function updateCart(val) {
-            count += val;
-            const counter = document.getElementById('cart-count');
-            counter.innerText = count;
-            
-            // Animation de "bump"
-            counter.style.transform = "scale(1.5)";
-            setTimeout(() => {
-                counter.style.transform = "scale(1)";
-            }, 200);
-
-            if(val > 0) {
-                alert("Article ajouté ! Personnalisation active [cite: 31]");
-            }
-        }
-
-        // Animation au scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.padding = "10px 24px";
-                nav.style.backgroundColor = "rgba(0,0,0,0.95)";
-            } else {
-                nav.style.padding = "12px 24px";
-            }
-        });
-    </script>
 </body>
 </html>
